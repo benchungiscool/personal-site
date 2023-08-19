@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+  max-width: 42rem;
+  padding: 1rem;
+  line-height: 1.5;
+  margin: auto;
+  background: #1e1d1d;
+  color: #F8F8F2;
+}
+
+.title {
+  color: #fd5b5b;
+  margin-bottom: 0.25rem;
+  margin-top: 0rem;
+  font-size: 2rem;
+  animation: pulse 2s infinite; /* Apply the 'pulse' animation for 2 seconds, infinitely */
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: #4897ff;
+}
+
+a,
+a:active,
+a:visited {
+  color: #fd8b8b;
+}
+
+ul {
+  margin-left: -15px;
+}
+
+ul.flat {
+  margin: 0;
+  padding: 0;
+}
+
+ul.flat li {
+  display: inline-block;
+  list-style: none;
+  margin-left: 0;
+}
+
+ul.competencies {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+p.about {
+  padding-bottom: 0;
+}
+
+.skills_box {
+  padding-top: 0;
+}
+
+.header nav ul.flat {
+  padding: 0;
+}
+
+h4.post_title {
+  color: #fd5b5b;
+  margin-bottom: 0rem;
+}
+
+p.post_body {
+  margin-top: 0rem;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  body {
+    max-width: 100%;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    color: #1e1d1d;
+  }
+  50% {
+    color: #fd5b5b;
+  }
+  100% {
+    color: #1e1d1d;
+  }
+}
+
