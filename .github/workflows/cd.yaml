@@ -1,0 +1,30 @@
+name: Deploy newest version
+
+on:
+  push:
+    branches:
+      - main
+  merge:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H "${{ secrets.SERVER_IP }}">> ~/.ssh/known_hosts
+
+      - name: Pull latest changes
+        run: ssh ben@cocteau.benchung.dev 'cd ~/personal-site && git pull'
+
+      - name: Start server
+        run: ssh ben@cocteau.benchung.dev 'cd ~/personal-site && ./start.sh'
