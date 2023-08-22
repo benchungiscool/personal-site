@@ -25,7 +25,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: cd ~/personal-site && git pull
 
-      - name: Pull latest changes
+      - name: Start new version
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
