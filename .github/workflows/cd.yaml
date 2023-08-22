@@ -17,7 +17,19 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
 
       - name: Pull latest changes
-        run: ssh -i ~/.ssh/id_rsa ${{ secrets.SERVER_IP }} 'cd ~/personal-site && git pull'
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: cd ~/personal-site && git pull
 
-      - name: Start server
-        run: ssh -i ~/.ssh/id_rsa ${{ secrets.SERVER_IP  }} 'cd ~/personal-site && ./start.sh'
+      - name: Pull latest changes
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: cd ~/personal-site && ./start.sh
