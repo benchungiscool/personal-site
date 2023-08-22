@@ -15,13 +15,13 @@ jobs:
 
       - name: Setup SSH
         run: |
-          mkdir -p ~/.ssh
+          mkdir ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H "${{ secrets.SERVER_IP }}">> ~/.ssh/known_hosts
+          ssh-keyscan -H "${{ secrets.SERVER_IP }}" >> ~/.ssh/known_hosts
 
       - name: Pull latest changes
-        run: ssh ben@cocteau.benchung.dev 'cd ~/personal-site && git pull'
+        run: ssh ${{ secrets.SERVER_IP }} 'cd ~/personal-site && git pull'
 
       - name: Start server
-        run: ssh ben@cocteau.benchung.dev 'cd ~/personal-site && ./start.sh'
+        run: ssh ben@cocteau.benchung.dev ${{ secrets.SERVER_IP  }} 'cd ~/personal-site && ./start.sh'
