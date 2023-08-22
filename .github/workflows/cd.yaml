@@ -17,7 +17,7 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
 
       - name: Pull latest changes
-        run: ssh ${{ secrets.SERVER_IP }} 'cd ~/personal-site && git pull'
+        run: ssh -i ~/.ssh/id_rsa ${{ secrets.SERVER_IP }} 'cd ~/personal-site && git pull'
 
       - name: Start server
-        run: ssh ${{ secrets.SERVER_IP  }} 'cd ~/personal-site && ./start.sh'
+        run: ssh -i ~/.ssh/id_rsa ${{ secrets.SERVER_IP  }} 'cd ~/personal-site && ./start.sh'
