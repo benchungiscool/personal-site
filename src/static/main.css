@@ -15,7 +15,7 @@ body {
   color: #fd5b5b;
   margin-bottom: 0.25rem;
   margin-top: 0rem;
-  font-size: 2rem;
+  font-size: 0.521vw;
   animation: pulse 2s infinite; /* Apply the 'pulse' animation for 2 seconds, infinitely */
 }
 
@@ -69,19 +69,6 @@ h4.post_title {
 
 p.post_body {
   margin-top: 0rem;
-}
-
-/* Media query for responsive design */
-@media (max-width: 768px) {
-  body {
-    max-width: 100%;
-    padding: 0.5rem;
-    font-size: 0.9rem;
-  }
-
-  .title {
-    font-size: 5rem;
-  }
 }
 
 @keyframes pulse {
