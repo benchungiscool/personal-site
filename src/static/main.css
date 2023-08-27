@@ -15,7 +15,7 @@ body {
   color: #fd5b5b;
   margin-bottom: 0.25rem;
   margin-top: 0rem;
-  font-size: 0.521vw;
+  font-size: 2rem;
   animation: pulse 2s infinite; /* Apply the 'pulse' animation for 2 seconds, infinitely */
 }
 
