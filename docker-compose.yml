@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "777:777"
     container_name: jonny
     volumes:
       - .:/static
