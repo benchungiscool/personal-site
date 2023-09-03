@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 
-from flask import Flask, render_template, request
+import os
+from flask import Flask, render_template, request, send_from_directory
 
 app = Flask(__name__, template_folder='static')
 
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 @app.route("/ip")
 def get_ip():
     return request.remote_addr + '\n'
