@@ -83,3 +83,8 @@ p.post_body {
   }
 }
 
+footer p {
+  text-align: center;
+  font-size: 0.1rem;
+  color: #1e1d1d;
+}
