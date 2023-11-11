@@ -19,4 +19,16 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          script: cd ~/projects/personal-site && git pull && docker build -t personal-site:latest
+          script: cd ~/projects/personal-site && git pull && docker build -t personal-site:latest .
+
+      - name: Trigger Target Repository
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const response = await octokit.repos.createDispatchEvent({
+              owner: 'benchungiscool',
+              repo: 'infra',
+              event_type: 'deploy-new-containers'
+            });
+            console.log(response.data);
