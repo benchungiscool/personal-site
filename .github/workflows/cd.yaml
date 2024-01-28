@@ -22,7 +22,7 @@ jobs:
           script: cd ~/projects/personal-site && git pull && docker build -t personal-site:latest .
 
       - name: Trigger Target Repository
-        uses: actions/github-script@v5
+        uses: appleboy/ssh-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
