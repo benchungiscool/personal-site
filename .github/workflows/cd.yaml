@@ -1,4 +1,4 @@
-name: Deploy newest version
+name: Build docker iamges
 
 on:
   push:
@@ -20,15 +20,3 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: cd ~/projects/personal-site && git pull && docker build -t personal-site:latest .
-
-      - name: Trigger Target Repository
-        uses: appleboy/ssh-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const response = await octokit.repos.createDispatchEvent({
-              owner: 'benchungiscool',
-              repo: 'infra',
-              event_type: 'deploy-new-containers'
-            });
-            console.log(response.data);
