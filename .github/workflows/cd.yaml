@@ -1,4 +1,4 @@
-name: Build docker iamges
+name: Build docker images
 
 on:
   push:
