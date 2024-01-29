@@ -2,6 +2,7 @@
 
 import os
 from flask import Flask, render_template, request, send_from_directory
+from src.process_md import getallmd
 
 app = Flask(__name__, template_folder='static')
 
@@ -9,13 +10,14 @@ app = Flask(__name__, template_folder='static')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
-@app.route("/ip")
-def get_ip():
-    return request.remote_addr + '\n'
+
+@app.route("/posts")
+def posts():
+    return getallmd()
 
 @app.route("/")
 def main():
     return render_template("index.html")
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='127.0.0.1', debug=True)

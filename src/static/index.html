@@ -4,6 +4,8 @@
     <title>Ben Chung</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Only Javascript I'll ever need baby!! -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
   </head>
   <body>
     <h1 class="title">> ben</h1>
@@ -28,17 +30,8 @@
         <li>agile / scrum management</li>
       </ul>
     </div>
-    <div class="post">
-      <h4 class="post_title">This site now uses CD for this site on gh-actions!!</h3>
-      <p class="post_body">
-        A big part of my role in DevOps is creating and maintaining CI/CD pipelines with tools like jenkins and gh-actions.
-        I wanted to experiment with this myself and create a pipeline for changes to the main branch of the repo of this site, as part of my ongoing
-        commitment to spend more time on backend than frontend.
-        <br><br>
-        To this end, I created a simple CD script using github actions, which pulls down my latest changes and then redeploy my docker containers for the
-        site itself, and my nginx. This means that I don't have to ssh into my server to make changes to this site, and can test updates to the site on my
-        local before pushing.
-      </p>
+    <div hx-trigger="load" hx-get="/posts">
+      if you're reading this, my htmx isn't working :(
     </div>
   </body>
 </html>

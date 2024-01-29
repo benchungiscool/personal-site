@@ -71,6 +71,16 @@ p.post_body {
   margin-top: 0rem;
 }
 
+.post h1 {
+  color: #fd5b5b;
+  margin-bottom: 0rem;
+  font-size: 1rem;
+}
+
+.post p {
+  margin-top: 0rem;
+}
+
 @keyframes pulse {
   0% {
     color: #1e1d1d;
