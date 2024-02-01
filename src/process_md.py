@@ -18,9 +18,11 @@ def getallmd():
         with open(getFilePath(filename), "r") as fc:
             contents = fc.read()
         htmlcontents = markdown(contents)
-        ret += "<div class='post'>\n"
-        ret += htmlcontents
-        ret += "\n</div>\n\n"
+        ret += f"""
+        <div class 'post'>\n
+            {htmlcontents}
+        </div>
+        """
     return ret
 
 if __name__ == "__main__":
