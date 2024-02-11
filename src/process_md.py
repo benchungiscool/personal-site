@@ -16,7 +16,7 @@ scrapeTags = lambda markdownfiles: [int(filename.split("_")[0]) for filename in 
 
 # Get tags
 def gettags():
-    if markdownindir():
+    if scrapeTags(markdownindir()):
         return scrapeTags(markdownindir())
     return [0]
 
