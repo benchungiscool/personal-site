@@ -2,9 +2,10 @@
 
 import os
 from flask import Flask, render_template, request, send_from_directory
-from src.process_md import getallmd
+from src.process_md import writetofile
 
 app = Flask(__name__, template_folder='static')
+writetofile()
 
 @app.route("/favicon.ico")
 def favicon():
@@ -13,11 +14,11 @@ def favicon():
 
 @app.route("/posts")
 def posts():
-    return getallmd()
+    return render_template("posts.html")
 
 @app.route("/")
 def main():
     return render_template("index.html")
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', debug=True)
+    app.run(host='0.0.0.0', debug=True)
