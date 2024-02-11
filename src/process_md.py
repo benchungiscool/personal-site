@@ -10,6 +10,10 @@ directory = targetdir
 isMarkdownFile = lambda filename: filename[-3:] == '.md'
 getFilePath = lambda filename: str(targetdir + "/" + filename)
 
+# Get all the markdown files in a directory
+def markdownindir():
+    return [filename for filename in listdir(targetdir) if isMarkdownFile(filename)]
+
 # Get the content of all the markdown files in our target directory, rendered into html
 def getallmd():
     ret = ""
@@ -25,6 +29,9 @@ def getallmd():
 
 def writetofile():
     renderedposts = getallmd()
-    with open("src/static/posts.html", "w") as fc:
+    filepath = "src/static/posts.html"
+    if os.path.exists(filepath):
+        os.remove(filepath)
+    with open(filepath, "w") as fc:
         fc.write(renderedposts)
 
