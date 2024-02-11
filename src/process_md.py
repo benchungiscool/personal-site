@@ -31,10 +31,6 @@ def addtags():
         max_tag += 1
         os.rename(getFilePath(filename), getFilePath(str(max_tag) + "_" + filename))
 
-def getsortedposts():
-    addtags()
-    return [filename.split("_") for filename in markdownindir()]
-
 # Get the content of all the markdown files in our target directory, rendered into html
 def getallmd():
     ret = ""
