@@ -35,7 +35,7 @@ def addtags():
 def getallmd():
     ret = ""
     addtags()
-    for filename in markdownindir():
+    for filename in markdownindir()[::-1]:
         with open(getFilePath(filename), "r") as fc:
             contents = fc.read()
         htmlcontents = markdown(contents)
