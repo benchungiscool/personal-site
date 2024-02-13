@@ -2,7 +2,7 @@
 
 import os
 from flask import Flask, render_template, request, send_from_directory
-from src.process_md import writetofile
+from src.process_md import writetofile, getallmd
 
 app = Flask(__name__, template_folder='static')
 writetofile()
@@ -14,7 +14,7 @@ def favicon():
 
 @app.route("/posts")
 def posts():
-    return render_template("posts.html")
+    return getallmd()
 
 @app.route("/")
 def main():
