@@ -74,14 +74,14 @@ h4.post_title {
 .post h1 {
   color: #fd5b5b;
   margin-top: 0rem;
-  margin-bottom: 0rem;
+  margin-bottom: 0.25rem;
   font-size: 1rem;
 }
 
 .post h1:hover {
   animation: color-cycle 1s infinite;
   margin-top: 0rem;
-  margin-bottom: 0rem;
+  margin-bottom: 0.25rem;
   font-size: 1rem;
 }
 
