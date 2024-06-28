@@ -67,18 +67,30 @@ h4.post_title {
   margin-bottom: 0rem;
 }
 
-p.post_body {
-  margin-top: 0rem;
+.post {
+  margin-bottom: 0rem;
 }
 
 .post h1 {
   color: #fd5b5b;
+  margin-top: 0rem;
   margin-bottom: 0rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
+}
+
+.post h1:hover {
+  animation: color-cycle 1s infinite;
+  margin-bottom: 0rem;
+  font-size: 2rem;
 }
 
 .post p {
   margin-top: 0rem;
+}
+
+hr.post_divider {
+  margin-bottom: 1rem;
+  opacity: 25%;
 }
 
 @keyframes pulse {
@@ -93,3 +105,10 @@ p.post_body {
   }
 }
 
+@keyframes color-cycle {
+  0% { color: rgb(220, 120, 160); } /* Lightened red */
+  25% { color: rgb(255, 230, 153); } /* Lightened yellow */
+  50% { color: rgb(153, 230, 180); } /* Lightened green */
+  75% { color: rgb(180, 200, 230); } /* Lightened blue */
+  100% { color: rgb(220, 120, 160); } /* Lightened purple */
+}

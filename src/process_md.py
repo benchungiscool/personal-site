@@ -2,6 +2,7 @@
 from markdown import markdown
 from os import listdir
 import os
+import re
 
 targetdir = "./md"
 directory = targetdir
@@ -14,17 +15,36 @@ getFilePath = lambda filename: str(targetdir + "/" + filename)
 def markdownindir():
     return [filename for filename in listdir(targetdir) if isMarkdownFile(filename)]
 
+def formatpost(index, title, body):
+    return f"""
+    <div class="post" _="on click show #post{index}">
+        <h1>{title}</h1>
+    </div>
+    <div class="post" id="post{index}" _="on load hide me then on click hide me">
+    {body}
+    </div>
+    """
+
 # Get the content of all the markdown files in our target directory, rendered into html
 def getallmd():
     ret = ""
-    for filename in markdownindir():
+    for index, filename in enumerate(markdownindir()):
         with open(getFilePath(filename), "r") as fc:
             contents = fc.read()
-        htmlcontents = markdown(contents)
+        htmlcontents = markdown(contents).split("\n")
+        title = htmlcontents[0]
+        body = "".join(htmlcontents[1:])
         ret += f"""
-        <div class='post'>
-            {htmlcontents}
-        </div>"""
+        <div class="post" id="title{index}primary" _="on click show #post{index} then hide me then show #title{index}">
+            {title}
+        </div>
+        <div class="post" id="title{index}" _="on load hide me then on click hide #post{index} then hide me then show #title{index}primary">
+            {title}
+        </div>
+        <div class="post" _="on load hide me" id="post{index}">
+            {body}
+        </div>
+        """
     return ret
 
 def writetofile():

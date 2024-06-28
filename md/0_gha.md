@@ -1,4 +1,4 @@
-# This site now uses CD for this site on gh-actions!!
+# This site now uses github actions for deployments!!
 
 A big part of my role in DevOps is creating and maintaining CI/CD pipelines with tools like jenkins and gh-actions.
 I wanted to experiment with this myself and create a pipeline for changes to the main branch of the repo of this site, as part of my ongoing

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Only Javascript I'll ever need baby!! -->
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
   </head>
   <body>
     <h1 class="title">> ben</h1>
@@ -21,17 +22,15 @@
     <div class="skills_box">
       <h4 class="post_title">competencies</h4>
       <ul class="competencies">
-        <li>c/c++</li>
+        <li>terraform/terragrunt</li>
         <li>python</li>
-        <li>java</li>
         <li>docker</li>
         <li>go</li>
         <li>kubernetes</li>
-        <li>agile / scrum management</li>
       </ul>
     </div>
+    <hr class="post_divider">
     <div hx-trigger="load" hx-get="/posts">
-      if you're reading this, my htmx isn't working :(
     </div>
   </body>
 </html>
