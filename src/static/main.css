@@ -113,3 +113,7 @@ hr.post_divider {
   75% { color: rgb(180, 200, 230); } /* Lightened blue */
   100% { color: rgb(220, 120, 160); } /* Lightened purple */
 }
+
+pre code {
+  border-radius: 5px; /* Rounded corners */
+}
