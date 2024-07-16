@@ -55,3 +55,6 @@ def writetofile():
     with open(filepath, "w") as fc:
         fc.write(renderedposts)
 
+
+if __name__ == "__main__":
+    writetofile()

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 import os
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request, send_from_directory, send_file
 from src.process_md import writetofile, getallmd
 
 app = Flask(__name__, template_folder='static')
-writetofile()
+environment = "prod" if os.getenv("PWD") != "/static" else "dev"
 
 @app.route("/favicon.ico")
 def favicon():
@@ -19,6 +19,8 @@ def postbody():
 
 @app.route("/posts")
 def posts():
+    if prod:
+        return send_file("./static/posts.html")
     return getallmd()
 
 @app.route("/")
