@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request, send_from_directory, send_file
 from src.process_md import writetofile, getallmd
 
 app = Flask(__name__, template_folder='static')
@@ -20,8 +20,7 @@ def postbody():
 @app.route("/posts")
 def posts():
     if prod:
-        with open("./static/posts.html", "r") as fc:
-            return fc.read()
+        return send_file("static/posts.html")
     return getallmd()
 
 @app.route("/")
