@@ -11,11 +11,10 @@ directory = targetdir
 # Lambda functions related to finding markdown files
 isMarkdownFile = lambda filename: filename[-3:] == '.md'
 getFilePath = lambda filename: str(targetdir + "/" + filename)
-format_codeblocks = lambda markdown: markdown.replace("</pre>\n<p></code></p>", "</pre></code>")
 
 # Get all the markdown files in a directory
 def markdownindir():
-    return [filename for filename in listdir(targetdir) if isMarkdownFile(filename)]
+    return [filename for filename in listdir(targetdir)[::-1] if isMarkdownFile(filename)]
 
 def format_post_body(post_body):
     ret = deepcopy(post_body)
@@ -86,3 +85,5 @@ def writetofile():
 
 if __name__ == "__main__":
     writetofile()
+    for filename in listdir(targetdir):
+        print(filename)
