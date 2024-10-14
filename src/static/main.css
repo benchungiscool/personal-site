@@ -72,7 +72,7 @@ h4.post_title {
 }
 
 .post h1 {
-  color: #fd5b5b;
+  color: #fd8b8b;
   margin-top: 0rem;
   margin-bottom: 0.25rem;
   font-size: 1rem;
@@ -112,4 +112,14 @@ hr.post_divider {
   50% { color: rgb(153, 230, 180); } /* Lightened green */
   75% { color: rgb(180, 200, 230); } /* Lightened blue */
   100% { color: rgb(220, 120, 160); } /* Lightened purple */
+}
+
+pre code {
+  border-radius: 5px; /* Rounded corners */
+  background-color: #fd5b5b;
+}
+
+code {
+  border-radius: 5px;
+  background-color: #575555;
 }
