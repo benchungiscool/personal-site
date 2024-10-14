@@ -73,7 +73,7 @@ h4.post_title {
 }
 
 .post h1 {
-  color: #fd5b5b;
+  color: #fd8b8b;
   margin-top: 0rem;
   margin-bottom: 0.25rem;
   font-size: 1rem;
@@ -117,4 +117,10 @@ hr.post_divider {
 
 pre code {
   border-radius: 5px; /* Rounded corners */
+  background-color: #fd5b5b;
+}
+
+code {
+  border-radius: 5px;
+  background-color: #575555;
 }
